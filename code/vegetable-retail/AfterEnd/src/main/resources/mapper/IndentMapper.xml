@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper namespace="org.mybatis.example.BlogMapper"-->
+<mapper namespace="com.spring.afterend.mapper.IndentMapper">
+    <select id="page" resultType="com.spring.afterend.pojo.Indent">
+        select i.*, c.mername from indent i left join consumer c on i.com_id = c.mid
+          <where>
+              <if test="name != ''">
+                  and i.name = like contact ('%',#{name},'%')
+              </if>
+                  and i.com_id = #{id}
+          </where>
+    </select>
+</mapper>
